@@ -5,7 +5,6 @@ import { Quote } from "./components/Quote";
 import { WeatherForecast } from "./components/WeatherForecast";
 import { WeatherToday } from "./components/WeatherToday";
 import { Header } from "./components/Header";
-import { WEATER_TODAY, WEATHER_FORECAST } from "./utils/API";
 import { weatherBackgroundSwitcher } from "./components/WeatherSwitch";
 
 export const AppContext = createContext({
@@ -32,7 +31,6 @@ function App() {
     JSON.parse(localStorage.getItem("forecast"))
   );
   const [city, setCity] = useState(getCityFromStorage());
-  const [weatherFavourites, setWeatherFavourites] = useState("");
   const [quote, setQuote] = useState("");
 
   useEffect(() => {

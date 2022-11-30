@@ -19,7 +19,7 @@ export const WeatherToday = () => {
     <Box
       sx={{
         borderRadius: "20px",
-        backgroundColor: "darkGray",
+        backgroundColor: "rgba(73, 88, 103, 0.5)",
         boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px;",
         marginY: 4,
         display: "flex",
