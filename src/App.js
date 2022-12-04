@@ -6,6 +6,7 @@ import { WeatherForecast } from "./components/WeatherForecast";
 import { WeatherToday } from "./components/WeatherToday";
 import { Header } from "./components/Header";
 import { weatherBackgroundSwitcher } from "./components/WeatherSwitch";
+import { WORD_API } from "./utils/API";
 
 export const AppContext = createContext({
   city: "",
@@ -34,7 +35,7 @@ function App() {
   const [quote, setQuote] = useState("");
 
   useEffect(() => {
-    fetch("https://taylorswiftapi.herokuapp.com/get")
+    fetch(WORD_API)
       .then((res) => res.json())
       .then((data) => setQuote(data));
   }, []);
