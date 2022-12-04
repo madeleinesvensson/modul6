@@ -5,20 +5,17 @@ import { useState } from "react";
 
 export const CityInput = () => {
   const { setWeather, city, setCity, setForecast } = useAppContext();
-  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
     let city = event.target.City.value;
-    setIsLoading(true);
     fetch(WEATER_TODAY(city))
       .then((res) => res.json())
       .then((data) => {
         if (data.cod === 200) {
           setError("");
           setWeather(data);
-          setIsLoading(false);
           localStorage.setItem("city", JSON.stringify(city));
           localStorage.setItem("weather", JSON.stringify(data));
         } else {
@@ -35,7 +32,6 @@ export const CityInput = () => {
             item.dt_txt.includes("12:00")
           );
           setForecast(filteredForecast);
-          setIsLoading(false);
           localStorage.setItem("forecast", JSON.stringify(filteredForecast));
         } else {
           setError(data.message);
